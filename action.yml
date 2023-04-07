@@ -1,0 +1,24 @@
+name: 'Generate Github App Token'
+description: 'Generate Github App Token'
+inputs:
+  app_id:
+    description: Github App ID
+    required: true
+  app_private_key:
+    description: Github App Private Key
+    required: true
+  github_repo:
+    description: Github Full Repo Name (e.g. owner/repo)
+    default: ${{ github.repository }}
+outputs:
+  token:
+    description: 'Github App Token'
+  unscoped_token:
+    description: 'Github App Unscoped Token'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.app_id }}
+    - ${{ inputs.app_private_key }}
+    - ${{ inputs.github_repo }}
