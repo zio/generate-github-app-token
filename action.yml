@@ -1,4 +1,4 @@
-name: 'Generate Github App Token'
+name: 'Generate Github App Token Action'
 description: 'Generate Github App Token'
 inputs:
   app_id:
